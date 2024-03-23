@@ -1,5 +1,9 @@
-let getShippingMessage = (country, price, deliveryFee) => {
-  const totalPrice = price + deliveryFee;
-  return `Shipping to ${country} will cost ${totalPrice} credits`;
+let formatMessage = (message, maxLength) => {
+  if (message.length > maxLength) {
+    message = message.slice(0, maxLength);
+    message += '...';
+  }
+  return message;
 };
-console.log(getShippingMessage("Australia", 120, 50));
+
+console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15));

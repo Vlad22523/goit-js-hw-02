@@ -1,5 +1,7 @@
-let makeTransaction = (quantity, pricePerDroid) => {
+let makeTransaction = (quantity, pricePerDroid, customerCredits) => {
   const totalPrice = quantity * pricePerDroid;
-  return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+  return totalPrice <= customerCredits
+    ? `You ordered ${quantity} droids worth ${totalPrice} credits!`
+    : 'Insufficient funds!';
 };
-console.log(makeTransaction(5, 3000));
+console.log(makeTransaction(10, 500, 5000));
